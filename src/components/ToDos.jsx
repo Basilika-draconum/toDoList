@@ -18,9 +18,7 @@ export const ToDos = () => {
       )
     );
   };
-  // const handleToggleModal = () => {
-  //   setOpenModal(prev => !prev);
-  // };
+
   const handleCloseModal = () => setOpenModal(!openModal);
   const handleOpenModal = ({ title, description, isDone }) => {
     setModalDetails({ title, description, isDone });

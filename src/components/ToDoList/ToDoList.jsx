@@ -31,7 +31,7 @@ export const ToDoList = ({ toDos, onChecked, onOpenModal }) => {
                 <td>
                   <input
                     type="checkbox"
-                    checked={isDone}
+                    defaultChecked={isDone}
                     onClick={e => {
                       onChecked(id);
                       e.stopPropagation();

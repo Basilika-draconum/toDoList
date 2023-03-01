@@ -9,7 +9,7 @@ export const ToDoModal = ({ onCloseModal, toDo }) => {
         <h3 className={css.modalText}>Description:</h3>
         <p className={css.modalText}>{toDo.description}</p>
         <p className={css.modalText}>
-          Status: <input type="checkbox" checked={toDo.isDone} readonly />
+          Status: <input type="checkbox" checked={toDo.isDone} readOnly />
         </p>
       </div>
     </div>

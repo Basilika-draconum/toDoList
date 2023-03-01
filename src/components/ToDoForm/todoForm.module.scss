@@ -2,7 +2,7 @@
     padding: 40px;
     display: flex;
     gap: 70px;
-    align-items: flex-end;
+    align-items: center;
     
     &Label{
         display: block;
@@ -12,7 +12,21 @@
         display: block;
         padding: 5px;
         width: 250px;
-    
+        &Error{
+            padding: 5px;
+            width: 250px;
+            border:2px solid red;
+        }
+    }
+    &NoError{
+        color:red;
+        font-size: 10px;
+        visibility: hidden;
+    }
+    &Error {
+        color: red;
+        font-size: 10px;
+        visibility: visible;
     }
     &Button{
         padding: 5px;

@@ -4,6 +4,8 @@ import css from './todoForm.module.scss';
 export const ToDoForm = ({ onCreateToDo }) => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isEmptyDesc, setIsEmptyDesc] = useState(false);
   const actions = { title: setTitle, description: setDescription };
 
   const handleChange = e => {
@@ -14,8 +16,20 @@ export const ToDoForm = ({ onCreateToDo }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const toDo = { title, description, isDone: false };
-    onCreateToDo(toDo);
-    handleReset();
+    setIsEmpty(false);
+    setIsEmptyDesc(false);
+    if (title && description) {
+      onCreateToDo(toDo);
+      handleReset();
+      return;
+    }
+    if (title === '') {
+      setIsEmpty(true);
+    }
+
+    if (description === '') {
+      setIsEmptyDesc(true);
+    }
   };
 
   const handleReset = () => {
@@ -23,6 +37,7 @@ export const ToDoForm = ({ onCreateToDo }) => {
       item('');
     });
   };
+
   return (
     <div className="css.container">
       <form className={css.form} onSubmit={handleSubmit}>
@@ -32,14 +47,16 @@ export const ToDoForm = ({ onCreateToDo }) => {
           </label>
 
           <input
-            className={css.formInput}
+            className={isEmpty ? css.formInputError : css.formInput}
             type="text"
             name="title"
             placeholder="Enter title"
             value={title}
             onChange={handleChange}
-            required
           />
+          <p className={isEmpty ? css.formError : css.formNoError}>
+            This field is empty
+          </p>
         </div>
         <div className="css.formGroup">
           <label className={css.formLabel} htmlFor="description">
@@ -47,15 +64,18 @@ export const ToDoForm = ({ onCreateToDo }) => {
           </label>
 
           <input
-            className={css.formInput}
+            className={isEmptyDesc ? css.formInputError : css.formInput}
             type="text"
             name="description"
             placeholder="Enter description"
             value={description}
             onChange={handleChange}
-            required
           />
+          <p className={isEmptyDesc ? css.formError : css.formNoError}>
+            This field is empty
+          </p>
         </div>
+
         <button className={css.formButton} type="submit">
           Create
         </button>
