@@ -1,0 +1,21 @@
+.form{
+    padding: 40px;
+    display: flex;
+    gap: 70px;
+    align-items: flex-end;
+    
+    &Label{
+        display: block;
+        margin-bottom: 8px;
+    }
+    &Input{
+        display: block;
+        padding: 5px;
+        width: 250px;
+    
+    }
+    &Button{
+        padding: 5px;
+    }
+}
+

@@ -1,0 +1,44 @@
+.backdrop{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(189, 195, 199, 0.8);
+    z-index: 1;
+}
+.modal {
+    position: relative;
+    width: 400px;
+    min-height: 200px;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.modalCloseButton {
+    width: 15px;
+    height: 15px;
+    background-image: url('../../../public/close.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: absolute;
+    right: 18px;
+    top: 18px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+.modalTitle{
+margin: 0 auto;
+}
